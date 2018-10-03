@@ -73,4 +73,14 @@ class ParticipantTest {
 		assertEquals(245 + 110, participant.finalPrice());
 	}
 
+	@Test
+	void testFinalPrice4() {
+		Participant participant = new Participant();
+		participant.setEarly(false);
+		participant.setWorkshop(cidmWorkshop);
+		participant.setStudent(false);
+		participant.setSingleRoom(true);
+		participant.setCash(false);
+		assertEquals(455.0, participant.finalPrice());
+	}
 }

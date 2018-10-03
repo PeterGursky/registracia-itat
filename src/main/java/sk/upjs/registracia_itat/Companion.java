@@ -3,11 +3,33 @@ package sk.upjs.registracia_itat;
 import java.time.LocalDateTime;
 
 public class Companion {
+	public static final double[] COMPANION_FEES = new double[]{60.0, 110.0, 165.0, 210.0};
+	public static final double BANKET_FEE = 20.0;
+	public static final double TSHIRT_FEE = 5.0;
+	public static final LocalDateTime BANKET_DATETIME 
+	 = LocalDateTime.of(2019, 9, 23, 19, 0);
+	
 	private CompanionCategory category;
 	private LocalDateTime start;
 	private LocalDateTime end;
 	private Tshirt tshirt;
 
+	public double getPrice() {
+		int nights = start.toLocalDate().until(end.toLocalDate()).getDays();
+		double price = 0.0;
+		if (nights > 0) {
+			price = COMPANION_FEES[nights - 1];
+		}
+		
+		if (start.isBefore(BANKET_DATETIME) && end.isAfter(BANKET_DATETIME)) {
+			price += BANKET_FEE;
+		}
+		if (tshirt != null) {
+			price += TSHIRT_FEE;
+		}
+		return price;
+	}
+	
 	public CompanionCategory getCategory() {
 		return category;
 	}

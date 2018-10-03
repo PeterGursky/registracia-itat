@@ -6,10 +6,7 @@ import java.util.List;
 public class Participant {
 	
 	public static final double SINGLE_ROOM_FEE = 75.0;
-	public static final double[] COMPANION_FEES = new double[]{60.0, 110.0, 165.0, 210.0};
-	public static final double BANKET_FEE = 20.0;
-	public static final LocalDateTime BANKET_DATETIME 
-	 = LocalDateTime.of(2019, 9, 23, 19, 0);
+
 	
 	private String name;
 	private String surname;
@@ -43,7 +40,14 @@ public class Participant {
 				price = workshop.getPriceFullLate();
 			}
 		}
-		
+		if (companions != null) {
+			for (Companion companion : companions) {
+				price += companion.getPrice();
+			}
+		}
+		if (singleRoom) {
+			price += SINGLE_ROOM_FEE;
+		}
 		return price;
 	}
 
