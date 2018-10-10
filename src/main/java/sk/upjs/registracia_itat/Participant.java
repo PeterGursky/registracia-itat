@@ -7,7 +7,7 @@ public class Participant {
 	
 	public static final double SINGLE_ROOM_FEE = 75.0;
 
-	
+	private Long id;
 	private String name;
 	private String surname;
 	private String email;
@@ -178,4 +178,19 @@ public class Participant {
 	public void setCash(boolean cash) {
 		this.cash = cash;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "Participant [id=" + id + ", name=" + name + ", surname=" + surname + ", email=" + email + "]";
+	}
+
+	
 }
