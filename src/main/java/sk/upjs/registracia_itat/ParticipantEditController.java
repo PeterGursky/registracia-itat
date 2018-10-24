@@ -5,11 +5,14 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import sk.upjs.registracia_itat.entity.Participant;
+import sk.upjs.registracia_itat.persitent.ParticipantDao;
+import sk.upjs.registracia_itat.persitent.DaoFactory;
 
 public class ParticipantEditController {
 
 	private ParticipantDao participantDao 
-		= ParticipantDaoFactory.INSTANCE.getParticipantDao();
+		= DaoFactory.INSTANCE.getParticipantDao();
 	private Participant participant;
 	private ParticipantFxModel participantModel;
 	

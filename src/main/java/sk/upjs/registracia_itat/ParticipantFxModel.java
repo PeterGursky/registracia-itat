@@ -2,6 +2,7 @@ package sk.upjs.registracia_itat;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import sk.upjs.registracia_itat.entity.Participant;
 
 public class ParticipantFxModel {
 	

@@ -12,6 +12,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import sk.upjs.registracia_itat.entity.Companion;
+import sk.upjs.registracia_itat.entity.CompanionCategory;
+import sk.upjs.registracia_itat.entity.Participant;
+import sk.upjs.registracia_itat.entity.WorkShop;
+
 class ParticipantTest {
 
 	WorkShop cidmWorkshop;

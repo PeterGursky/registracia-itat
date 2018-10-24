@@ -1,4 +1,4 @@
-package sk.upjs.registracia_itat;
+package sk.upjs.registracia_itat.entity;
 
 public enum Tshirt {
 	S,

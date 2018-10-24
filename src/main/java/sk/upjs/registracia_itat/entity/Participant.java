@@ -1,4 +1,4 @@
-package sk.upjs.registracia_itat;
+package sk.upjs.registracia_itat.entity;
 
 import java.time.LocalDateTime;
 import java.util.List;

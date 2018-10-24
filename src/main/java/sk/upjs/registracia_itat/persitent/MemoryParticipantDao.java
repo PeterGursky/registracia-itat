@@ -1,7 +1,9 @@
-package sk.upjs.registracia_itat;
+package sk.upjs.registracia_itat.persitent;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import sk.upjs.registracia_itat.entity.Participant;
 
 public class MemoryParticipantDao implements ParticipantDao {
 	
