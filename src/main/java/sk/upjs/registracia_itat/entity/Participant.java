@@ -22,7 +22,7 @@ public class Participant {
 	private LocalDateTime start;
 	private LocalDateTime end;
 	private List<Companion> companions;
-	private WorkShop workshop;
+	private Workshop workshop;
 	private boolean cash;
 	
 	public double finalPrice() {
@@ -163,11 +163,11 @@ public class Participant {
 		this.companions = companions;
 	}
 
-	public WorkShop getWorkshop() {
+	public Workshop getWorkshop() {
 		return workshop;
 	}
 
-	public void setWorkshop(WorkShop workshop) {
+	public void setWorkshop(Workshop workshop) {
 		this.workshop = workshop;
 	}
 
