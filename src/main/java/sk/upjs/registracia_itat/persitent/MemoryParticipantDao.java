@@ -1,9 +1,11 @@
 package sk.upjs.registracia_itat.persitent;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 import sk.upjs.registracia_itat.entity.Participant;
+import sk.upjs.registracia_itat.entity.Tshirt;
 
 public class MemoryParticipantDao implements ParticipantDao {
 	
@@ -17,6 +19,8 @@ public class MemoryParticipantDao implements ParticipantDao {
 		p.setName("Andrej");
 		p.setSurname("Kiska");
 		p.setEmail("prezident@prezident.sk");
+		p.setTshirt(Tshirt.S);
+		p.setStart(LocalDateTime.now());
 		this.add(p);
 		
 		Participant p2 = new Participant();

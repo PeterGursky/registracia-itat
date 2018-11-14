@@ -7,6 +7,7 @@ import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -64,7 +65,9 @@ public class WorkshopEditController {
 				@Override
 				public void changed(ObservableValue<? extends Workshop> observable, 
 						Workshop oldValue, Workshop newValue) {
-					workshopModel.setWorkshop(newValue);
+					if (newValue != null) {
+						workshopModel.setWorkshop(newValue);
+					}
 				}
 			});
 //    	if (! workshopComboBox.getItems().isEmpty()) { // mame aspon 1 workshop
@@ -86,6 +89,48 @@ public class WorkshopEditController {
     			workshopModel.priceFullLateProperty(), new NumberStringConverter());
     	priceStudentLateTextField.textProperty().bindBidirectional(
     			workshopModel.priceStudentLateProperty(), new NumberStringConverter());
+    }
+    
+    @FXML
+    void saveButtonClicked(ActionEvent event) {
+    	Workshop workshop = workshopModel.getWorkshop();
+    	workshopDao.save(workshop);
+    	
+    	List<Workshop> workshopy = workshopDao.getAll();
+    	workshopComboBox.setItems(FXCollections.observableList(workshopy));
+    	for (Workshop w : workshopy) {
+    		if (w.getId() == workshop.getId()) {
+    			workshopComboBox.getSelectionModel().select(w);
+    			workshopModel.setWorkshop(w);
+    		}    			
+    	}
+    }
+
+    @FXML
+    void clearButtonClicked(ActionEvent event) {
+    	Workshop novyWorkshop = new Workshop();
+    	novyWorkshop.setId(workshopModel.getId());
+    	workshopModel.setWorkshop(novyWorkshop);
+    }
+
+    @FXML
+    void saveNewWorkshopButtonClicked(ActionEvent event) {
+    	workshopModel.setId(null);
+    	saveButtonClicked(event);
+    }
+    
+    @FXML
+    void deleteButtonClicked(ActionEvent event) {
+    	if (workshopModel.getId() == null) {
+    		clearButtonClicked(event);
+    	} else {
+    		workshopDao.delete(workshopModel.getId());
+        	List<Workshop> workshopy = workshopDao.getAll();
+        	workshopComboBox.setItems(FXCollections.observableList(workshopy));
+        	if (!workshopy.isEmpty()) {
+        		workshopComboBox.getSelectionModel().select(workshopy.get(0));
+        	}
+    	}
     }
 }
 

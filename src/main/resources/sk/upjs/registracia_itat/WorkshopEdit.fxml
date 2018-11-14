@@ -7,12 +7,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="415.0" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ComboBox fx:id="workshopComboBox" layoutX="118.0" layoutY="62.0" prefWidth="150.0" />
+      <ComboBox fx:id="workshopComboBox" layoutX="118.0" layoutY="62.0" prefHeight="25.0" prefWidth="285.0" />
       <Label layoutX="24.0" layoutY="62.0" text="workshop" />
-      <TextField fx:id="nameTextField" layoutX="119.0" layoutY="107.0" />
+      <TextField fx:id="nameTextField" layoutX="119.0" layoutY="107.0" prefHeight="25.0" prefWidth="285.0" />
       <TextField fx:id="priceFullTextField" layoutX="119.0" layoutY="221.0" />
       <TextField fx:id="priceStudentTextField" layoutX="120.0" layoutY="263.0" />
       <TextField fx:id="priceFullLateTextField" layoutX="119.0" layoutY="297.0" />
@@ -26,6 +25,9 @@
       <Label layoutX="24.0" layoutY="263.0" text="Cena študent" />
       <Label layoutX="24.0" layoutY="297.0" text="Neskorá bežný" />
       <Label layoutX="24.0" layoutY="333.0" text="Neskorá študent" />
-      <Button fx:id="saveButton" layoutX="310.0" layoutY="338.0" mnemonicParsing="false" text="Uložiť" />
+      <Button fx:id="saveButton" layoutX="310.0" layoutY="338.0" mnemonicParsing="false" onAction="#saveButtonClicked" text="Uložiť" />
+      <Button layoutX="310.0" layoutY="297.0" mnemonicParsing="false" onAction="#saveNewWorkshopButtonClicked" text="Pridať ako nový" />
+      <Button layoutX="308.0" layoutY="263.0" mnemonicParsing="false" onAction="#clearButtonClicked" text="Vyčisti" />
+      <Button layoutX="307.0" layoutY="226.0" mnemonicParsing="false" onAction="#deleteButtonClicked" text="Vymazať" />
    </children>
 </AnchorPane>
