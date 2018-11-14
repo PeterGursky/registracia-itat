@@ -3,7 +3,9 @@ package sk.upjs.registracia_itat;
 import java.time.LocalDate;
 
 import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import sk.upjs.registracia_itat.entity.Workshop;
@@ -12,8 +14,8 @@ public class WorkshopFxModel {
 
 	private Long id;
 	private StringProperty name = new SimpleStringProperty();
-	private LocalDate start;
-	private LocalDate end;
+	private ObjectProperty<LocalDate> start = new SimpleObjectProperty<>();
+	private ObjectProperty<LocalDate> end = new SimpleObjectProperty<>();
 	private DoubleProperty priceFull = new SimpleDoubleProperty();
 	private DoubleProperty priceStudent = new SimpleDoubleProperty();
 	private DoubleProperty priceFullLate = new SimpleDoubleProperty();
@@ -57,16 +59,22 @@ public class WorkshopFxModel {
 		return name;
 	}
 	public LocalDate getStart() {
-		return start;
+		return start.get();
 	}
 	public void setStart(LocalDate start) {
-		this.start = start;
+		this.start.set(start);
+	}
+	public ObjectProperty<LocalDate> startProperty() {
+		return start;
 	}
 	public LocalDate getEnd() {
-		return end;
+		return end.get();
 	}
 	public void setEnd(LocalDate end) {
-		this.end = end;
+		this.end.set(end);
+	}
+	public ObjectProperty<LocalDate> endProperty() {
+		return end;
 	}
 	public Double getPriceFull() {
 		return priceFull.get();
