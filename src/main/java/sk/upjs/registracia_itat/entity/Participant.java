@@ -189,8 +189,10 @@ public class Participant {
 
 	@Override
 	public String toString() {
-		return "Participant [id=" + id + ", name=" + name + ", surname=" + surname + ", email=" + email + "]";
+		return "Participant [id=" + id + ", name=" + name + ", surname=" + surname + ", email=" + email
+				+ ", organization=" + organization + ", address=" + address + ", ico=" + ico + ", dic=" + dic
+				+ ", early=" + early + ", tshirt=" + tshirt + ", student=" + student + ", singleRoom=" + singleRoom
+				+ ", start=" + start + ", end=" + end + ", companions=" + companions + ", workshop=" + workshop
+				+ ", cash=" + cash + "]";
 	}
-
-	
 }

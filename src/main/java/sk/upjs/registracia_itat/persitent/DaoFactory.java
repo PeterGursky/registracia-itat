@@ -13,7 +13,7 @@ public enum DaoFactory {
 	
 	public ParticipantDao getParticipantDao() {
 		if (participantDao == null)
-			participantDao = new MemoryParticipantDao();
+			participantDao = new MysqlParticipantDao(getJdbcTemplate());
 		return participantDao;
 	}
 	

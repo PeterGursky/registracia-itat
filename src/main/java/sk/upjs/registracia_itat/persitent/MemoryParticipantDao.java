@@ -2,6 +2,7 @@ package sk.upjs.registracia_itat.persitent;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import sk.upjs.registracia_itat.entity.Participant;
@@ -52,6 +53,18 @@ public class MemoryParticipantDao implements ParticipantDao {
 						break;
 					}
 				}
+			}
+		}
+	}
+
+	@Override
+	public void delete(long id) {
+		Iterator<Participant> it = participants.iterator();
+		while (it.hasNext()) {
+			Participant p = it.next();
+			if (p.getId().equals(id)) {
+				it.remove();
+				return;
 			}
 		}
 	}

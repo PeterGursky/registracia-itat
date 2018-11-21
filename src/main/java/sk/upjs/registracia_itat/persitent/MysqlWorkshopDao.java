@@ -93,4 +93,12 @@ public class MysqlWorkshopDao implements WorkshopDao {
 		jdbcTemplate.update(sql);
 	}
 
+	@Override
+	public Workshop getByParticipantId(long participantId) {
+		String sql = "SELECT workshop.id, workshop.name, workshop.start, workshop.end, price_full, price_student, " + 
+				"price_full_late, price_student_late " + 
+				"FROM workshop JOIN participant ON participant.workshop_id = workshop.id " +
+				"WHERE participant.id = " + participantId; 
+		return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Workshop.class));
+	}
 }

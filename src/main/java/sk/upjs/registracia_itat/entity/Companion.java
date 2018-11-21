@@ -3,6 +3,10 @@ package sk.upjs.registracia_itat.entity;
 import java.time.LocalDateTime;
 
 public class Companion {
+	@Override
+	public String toString() {
+		return "Companion [category=" + category + ", start=" + start + ", end=" + end + ", tshirt=" + tshirt + "]";
+	}
 	public static final double[] COMPANION_FEES = new double[]{60.0, 110.0, 165.0, 210.0};
 	public static final double BANKET_FEE = 20.0;
 	public static final double TSHIRT_FEE = 5.0;

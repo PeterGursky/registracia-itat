@@ -8,6 +8,8 @@ public interface WorkshopDao {
 
 	List<Workshop> getAll();
 	
+	Workshop getByParticipantId(long participantId);
+	
 	Workshop save(Workshop workshop);
 	
 	void delete(long id);

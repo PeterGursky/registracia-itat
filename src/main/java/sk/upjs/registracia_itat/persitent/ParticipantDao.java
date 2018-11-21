@@ -12,4 +12,5 @@ public interface ParticipantDao {
 	
 	void save(Participant participant);
 
+	void delete(long id);
 }
