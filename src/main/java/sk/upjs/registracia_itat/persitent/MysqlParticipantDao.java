@@ -96,8 +96,11 @@ public class MysqlParticipantDao implements ParticipantDao {
 	}
 
 	@Override
-	public void delete(long id) {
+	public void delete(long id) throws ParticipantNotFoundException {
 		jdbcTemplate.update("DELETE FROM companion WHERE participant_id = ?", id);
-		jdbcTemplate.update("DELETE FROM participant WHERE id = ?", id);
+		int deleted = jdbcTemplate.update("DELETE FROM participant WHERE id = ?", id);
+		if (deleted == 0) {
+			throw new ParticipantNotFoundException(id);
+		}
 	}
 }

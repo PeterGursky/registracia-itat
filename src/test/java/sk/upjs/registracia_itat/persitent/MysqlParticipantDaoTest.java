@@ -27,7 +27,7 @@ class MysqlParticipantDaoTest {
 		List<Participant> list = DaoFactory.INSTANCE.getParticipantDao().getAll();
 		System.out.println(list);
 		assertNotNull(list);
-		assertTrue(list.size() > 1);
+		assertTrue(list.size() > 0);
 	}
 	
 	@Test
